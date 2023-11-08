@@ -9,6 +9,7 @@
 </head>
 <body>
 
+<!-- Meny med länkar till olika funktioner -->
     <ul>
         <li><a href="../functions/add_product.php">Lägg till produkt</a></li>
         <li><a href="../functions/view_products.php">Se alla produkter</a></li>
@@ -17,8 +18,11 @@
     </ul>
 
 <?php
+
+// Inkluderar konfigurationsfilen för databasanslutningen
 include "config.php";
 
+// Kontrollerar om formuläret har skickats
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
     $description = $_POST["description"];
@@ -38,6 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
+<!-- Formulär för att lägga till en produkt -->
 <form method="post" action="add_product.php" enctype="multipart/form-data">
     <label for="name">Namn:</label>
     <input type="text" id="name" name="name" required><br>

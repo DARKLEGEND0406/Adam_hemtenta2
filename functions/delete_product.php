@@ -9,32 +9,31 @@
 </head>
 <body>
 
-    <ul>
+    <ul> <!-- Meny med länkar till olika funktioner -->
         <li><a href="../functions/add_product.php">Lägg till produkt</a></li>
         <li><a href="../functions/view_products.php">Se alla produkter</a></li>
         <li><a href="../functions/edit_product.php">Ändra pris/bild på produkt</a></li>
         <li><a href="../functions/delete_product.php">Ta bort produkt</a></li>
     </ul>
 
-
 <?php
-include "config.php";
+include "config.php"; // Inkluderar konfigurationsfilen för databasanslutningen
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = $_POST["id"];
+if ($_SERVER["REQUEST_METHOD"] == "POST") { // Kontrollerar om formuläret har skickats
+    $id = $_POST["id"]; // Hämtar produktens ID från formuläret
 
-    $stmt = $conn->prepare("DELETE FROM products WHERE id = ?");
-    $stmt->bind_param("i", $id);
+    $stmt = $conn->prepare("DELETE FROM products WHERE id = ?"); // Förbereder SQL-frågan för att ta bort produkten från databasen
+    $stmt->bind_param("i", $id); // Binder parametrarna till SQL-frågan
 
-    if ($stmt->execute()) {
-        echo "Produkten har tagits bort framgångsrikt.";
+    if ($stmt->execute()) { // Utför SQL-frågan och kontrollerar om den lyckades
+        echo "Produkten har tagits bort framgångsrikt."; // Skriver ut ett meddelande om att produkten har tagits bort
     } else {
-        echo "Fel vid borttagning av produkt: " . $conn->error;
+        echo "Fel vid borttagning av produkt: " . $conn->error; // Skriver ut ett felmeddelande om något gick fel
     }
 }
 ?>
 
-<form method="post" action="delete_product.php">
+<form method="post" action="delete_product.php"> <!-- Formulär för att ta bort en produkt -->
     <label for="id">Produkt ID att ta bort:</label>
     <input type="number" id="id" name="id" required><br>
     
