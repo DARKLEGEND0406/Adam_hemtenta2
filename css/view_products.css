@@ -1,0 +1,25 @@
+table {
+    border-collapse: collapse; /* Tar bort mellanrum mellan cellerna */
+    width: 80%; /* Sätter bredden på tabellen */
+    margin: 20px auto; /* Centrerar tabellen och ger lite utrymme ovanför och under */
+}
+
+th, td {
+    border: 1px solid black; /* Ger en tunn svart ram runt varje cell */
+    padding: 10px; /* Ger lite utrymme inuti varje cell */
+    text-align: left; /* Justerar texten till vänster i varje cell */
+}
+
+th {
+    background-color: #4CAF50; /* Ger en grön bakgrundsfärg till rubrikcellerna */
+    color: white; /* Ger en vit textfärg till rubrikcellerna */
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Ger en ljusgrå bakgrundsfärg till varannan rad */
+}
+
+img {
+    width: 100px; /* Sätter bredden på bilderna till 100 pixlar */
+    height: auto; /* Behåller bildernas proportioner */
+}

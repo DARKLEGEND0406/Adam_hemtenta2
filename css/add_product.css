@@ -1,0 +1,42 @@
+/* Använd en sans-serif font för hela sidan */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Ge formuläret en vit bakgrundsfärg, en border och en border radius */
+form {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+}
+
+/* Använd flexbox för att placera formulärets element i kolumner */
+form > * {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+/* Lägg till den här css koden i din index.css fil */
+
+/* Ge formulärets input och textarea en border, en border radius och en skugga */
+input, textarea {
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px gray;
+}
+
+/* Ändra borderfärgen och skuggan på input och textarea när de är i fokus */
+input:focus, textarea:focus {
+    border-color: blue;
+    box-shadow: 2px 2px 10px blue;
+}
+
+/* Ge formulärets label en övergångseffekt när de hovrar över input eller textarea */
+label:hover + input, label:hover + textarea {
+    transition: transform 0.5s;
+    transform: scale(1.1);
+}
+
